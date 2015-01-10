@@ -1,0 +1,27 @@
+{
+    "name": "akoceru/a2_gr1_oop_init",
+    "require": {
+        "cocur/slugify": "~1.0",
+        "doctrine/orm": "~2.4",
+        "doctrine/dbal": "~2.5",
+        "symfony/console": "~2.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Axel Denhaut",
+            "email": "axl.78@hotmail.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Cartman\\Init\\": "src"
+
+        }
+
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
