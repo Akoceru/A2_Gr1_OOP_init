@@ -12,7 +12,8 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 $paths = [
-    "src",
+
+    "srcpokemon",
 ];
 $isDevMode = true;
 

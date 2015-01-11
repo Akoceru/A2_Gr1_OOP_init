@@ -1117,7 +1117,7 @@ class ClassMetadataInfo implements ClassMetadata
      * @see ClassMetadataInfo::$associationMappings
      *
      * @param string $fieldName The field name that represents the association in
-     *                          the object model.
+     *                          the object Model.
      *
      * @return array The mapping.
      *

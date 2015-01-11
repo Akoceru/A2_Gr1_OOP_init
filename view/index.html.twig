@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ parent() }} - Supaaa
+{% endblock %}
+{% block content %}
+    <h1>Wellcome for the amazing Pokemon Online tournament!</h1>
+{% if session is not empty %}
+    <h2>Welcome {{ username }}  </h2>
+        {% if have_pokemon == 1 %}
+            <p>Consultez l'état de votre pokemon</p>
+        {% else %}
+
+            <p>You don't have a pokemon to fight. <a href="new_pokemon.php"> Créate your pokemon!</a></p>
+        {% endif %}
+    <a href="http://localhost/A2_Gr1_OOP_init/logout.php">logout</a>
+
+{% else %}
+    <a href="http://localhost/A2_Gr1_OOP_init/login.php">login</a>
+{% endif %}
+{% endblock %}

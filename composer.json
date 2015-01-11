@@ -4,7 +4,8 @@
         "cocur/slugify": "~1.0",
         "doctrine/orm": "~2.4",
         "doctrine/dbal": "~2.5",
-        "symfony/console": "~2.6"
+        "symfony/console": "~2.6",
+        "twig/twig": "~1.16"
     },
     "license": "MIT",
     "authors": [
@@ -16,8 +17,8 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "Cartman\\Init\\": "src"
-
+            "Cartman\\Init\\": "src",
+            "Akoceru\\PokemonBattle\\": "srcpokemon"
         }
 
     },
