@@ -12,8 +12,7 @@ require __DIR__.'/vendor/autoload.php';
 use Cartman\Init\Article;
 use Cocur\Slugify\Slugify;
 
-$slugify = new Slugify();
-$title = "dfKdjfhsqdgé(-è-é(-è-(   zqfsdgdsgééé   ééé ";
+
 $article = new Article();
 $article
     ->setId(5)

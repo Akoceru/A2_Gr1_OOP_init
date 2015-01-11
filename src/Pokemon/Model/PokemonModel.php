@@ -8,21 +8,51 @@
 
 namespace Cartman\Init\Pokemon\Model;
 
-
+/**
+ * Class PokemonModel
+ * @package Cartman\Init\Pokemon\Model
+ *
+ * @Entity
+ * * @Table(name="pokemon")
+ */
 abstract class PokemonModel implements PokemonInterface
 {
+
+    /**
+     * @var int
+     *
+     * @Id
+     * @GeneratedValue(strategy="AUTO")
+     * @Column(name="id", type="integer", )
+     */
+    private $id;
+
+    /**
+     * @var int
+     *
+     * @Column(name="user_id", type="integer")
+     */
+    private $user_id;
+
+
     /**
      * @var string
+     *
+     * @Column(name="name", type="string", length=20)
      */
     private $name;
 
     /**
      * @var int
+     *
+     * @Column(name="hp", type="integer")
      */
     private $hp;
 
     /**
      * @var int
+     *
+     * @Column(name="type", type="integer")
      */
     private $type;
 
@@ -161,5 +191,39 @@ abstract class PokemonModel implements PokemonInterface
      * @return bool
      */
     abstract public function isTypeStrong($type);
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * @param int $user_id
+     *
+     * @throws \Exception
+     * @return PokemonModel
+     */
+    public function setUserId($user_id)
+    {
+        if(is_int($user_id) && $user_id > 0)
+            $this->user_id = $user_id;
+        else
+            throw new \Exception("user id must be an integer and > 0");
+
+        return $this;
+    }
+
+
 
 }
