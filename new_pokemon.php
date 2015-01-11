@@ -67,6 +67,7 @@ if(isset($_POST['name']) && isset($_POST['type'])) {
     $trainer = $trainerRepository->find($_SESSION['id']);
 
     $trainer->setHavePokemon(1);
+    $trainer->setPokemonName($_POST['name']);
     var_dump($trainer);
     $em->flush();
     header("location: index.php");

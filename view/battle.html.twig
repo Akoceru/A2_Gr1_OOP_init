@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ parent() }} - Supaaa
+{% endblock %}
+{% block content %}
+    <h1>Wellcome for the amazing Pokemon Online tournament!</h1>
+        <h2>Welcome {{ username }}  </h2>
+    <ul>
+        {% for user in users %}
+            {% if user.havepokemon == 1 %}
+            <li>{{ user.username }} || {{ user.pokemonname }}</li>
+            {% else %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+{% endblock %}

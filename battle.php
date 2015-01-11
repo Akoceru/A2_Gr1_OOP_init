@@ -28,16 +28,16 @@ session_start();
 /** @var  \Doctrine\ORM\EntityRepository */
 $userRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
 $pokeRepository = $em->getRepository('Akoceru\PokemonBattle\Model\PokemonModel');
-$poke =$pokeRepository->findAll();
+$pokes =$pokeRepository->findAll();
 $users = $userRepository->findAll();
 
-var_dump($user);
 
 $twig = new Twig_Environment($loader,[
 //'cache' => null,
 ]);
 
 
-echo $twig->render('new_pokemon.html.twig', [
+echo $twig->render('battle.html.twig', [
     "users" => $users,
+    "pokes" => $pokes,
 ]);
