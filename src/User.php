@@ -49,7 +49,7 @@ class User {
     }
 
     /**
-     * @param string $user
+     * @param string $username
      * @return User
      * @throws \Exception
      */
