@@ -1129,7 +1129,7 @@ class Application
         $lines = array();
         $line = '';
         foreach (preg_split('//u', $utf8String) as $char) {
-            // test if $char could be appended to current line
+            // srcpoke if $char could be appended to current line
             if (mb_strwidth($line.$char, 'utf8') <= $width) {
                 $line .= $char;
                 continue;

@@ -30,7 +30,7 @@ class StaticReflectionParserTest extends DoctrineTestCase
             'Doctrine\\Tests' => array($testsRoot),
         );
         $staticReflectionParser = new StaticReflectionParser($parsedClassName, new Psr0FindFile($paths), $classAnnotationOptimize);
-        $declaringClassName = $staticReflectionParser->getStaticReflectionParserForDeclaringClass('property', 'test')->getClassName();
+        $declaringClassName = $staticReflectionParser->getStaticReflectionParserForDeclaringClass('property', 'srcpoke')->getClassName();
         $this->assertEquals($expectedClassName, $declaringClassName);
 
     }

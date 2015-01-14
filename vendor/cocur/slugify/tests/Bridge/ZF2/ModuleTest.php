@@ -20,7 +20,7 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @srcpoke
      * @covers Cocur\Slugify\Bridge\ZF2\Module::getServiceConfig()
      */
     public function getServiceConfig()
@@ -34,7 +34,7 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @srcpoke
      * @covers Cocur\Slugify\Bridge\ZF2\Module::getViewHelperConfig()
      */
     public function getViewHelperConfig()

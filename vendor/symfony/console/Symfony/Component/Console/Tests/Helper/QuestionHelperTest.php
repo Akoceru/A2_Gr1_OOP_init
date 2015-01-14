@@ -97,7 +97,7 @@ class QuestionHelperTest extends \PHPUnit_Framework_TestCase
     public function testAskWithAutocomplete()
     {
         if (!$this->hasSttyAvailable()) {
-            $this->markTestSkipped('`stty` is required to test autocomplete functionality');
+            $this->markTestSkipped('`stty` is required to srcpoke autocomplete functionality');
         }
 
         // Acm<NEWLINE>
@@ -131,7 +131,7 @@ class QuestionHelperTest extends \PHPUnit_Framework_TestCase
     public function testAskHiddenResponse()
     {
         if ('\\' === DIRECTORY_SEPARATOR) {
-            $this->markTestSkipped('This test is not supported on Windows');
+            $this->markTestSkipped('This srcpoke is not supported on Windows');
         }
 
         $dialog = new QuestionHelper();

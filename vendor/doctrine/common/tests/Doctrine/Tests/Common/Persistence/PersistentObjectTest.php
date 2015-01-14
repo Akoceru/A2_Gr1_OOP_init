@@ -45,8 +45,8 @@ class PersistentObjectTest extends \Doctrine\Tests\DoctrineTestCase
 
     public function testSetField()
     {
-        $this->object->setName("test");
-        $this->assertEquals("test", $this->object->getName());
+        $this->object->setName("srcpoke");
+        $this->assertEquals("srcpoke", $this->object->getName());
     }
 
     public function testGetIdentifier()
@@ -63,7 +63,7 @@ class PersistentObjectTest extends \Doctrine\Tests\DoctrineTestCase
     public function testSetUnknownField()
     {
         $this->setExpectedException('BadMethodCallException');
-        $this->object->setUnknown("test");
+        $this->object->setUnknown("srcpoke");
     }
 
     public function testGetUnknownField()
@@ -126,7 +126,7 @@ class PersistentObjectTest extends \Doctrine\Tests\DoctrineTestCase
         $child = new TestObject();
 
         $this->setExpectedException('RuntimeException');
-        $child->setName("test");
+        $child->setName("srcpoke");
     }
 
     public function testInvalidMethod()

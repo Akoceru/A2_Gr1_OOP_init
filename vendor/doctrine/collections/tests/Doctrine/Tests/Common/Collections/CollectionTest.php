@@ -93,20 +93,20 @@ class CollectionTest extends \Doctrine\Tests\DoctrineTestCase
 
     public function testContains()
     {
-        $this->_coll[0] = 'test';
-        $this->assertTrue($this->_coll->contains('test'));
+        $this->_coll[0] = 'srcpoke';
+        $this->assertTrue($this->_coll->contains('srcpoke'));
     }
 
     public function testSearch()
     {
-        $this->_coll[0] = 'test';
-        $this->assertEquals(0, $this->_coll->indexOf('test'));
+        $this->_coll[0] = 'srcpoke';
+        $this->assertEquals(0, $this->_coll->indexOf('srcpoke'));
     }
 
     public function testGet()
     {
-        $this->_coll[0] = 'test';
-        $this->assertEquals('test', $this->_coll->get(0));
+        $this->_coll[0] = 'srcpoke';
+        $this->assertEquals('srcpoke', $this->_coll->get(0));
     }
 
     public function testGetKeys()

@@ -3412,7 +3412,7 @@ abstract class AbstractPlatform
     }
 
     /**
-     * This is for test reasons, many vendors have special requirements for dummy statements.
+     * This is for srcpoke reasons, many vendors have special requirements for dummy statements.
      *
      * @return string
      */

@@ -8,5 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'Cocur\\Slugify\\' => array($vendorDir . '/cocur/slugify/src'),
     'Cartman\\Init\\' => array($baseDir . '/src'),
-    'Akoceru\\PokemonBattle\\' => array($baseDir . '/srcpokemon'),
+    'Akoceru\\PokemonBattle\\' => array($baseDir . '/srcpoke'),
 );

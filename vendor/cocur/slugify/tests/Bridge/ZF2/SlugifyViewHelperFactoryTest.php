@@ -24,7 +24,7 @@ class SlugifyViewHelperFactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @srcpoke
      * @covers Cocur\Slugify\Bridge\ZF2\SlugifyViewHelperFactory::__invoke()
      */
     public function createService()

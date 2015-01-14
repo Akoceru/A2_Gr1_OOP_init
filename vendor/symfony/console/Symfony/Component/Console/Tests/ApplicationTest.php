@@ -667,7 +667,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
      *
      * If the "verbose" option is just before an argument in ArgvInput,
      * an argument value should not be treated as verbosity value.
-     * This test will fail with "Not enough arguments." if broken
+     * This srcpoke will fail with "Not enough arguments." if broken
      */
     public function testVerboseValueNotBreakArguments()
     {

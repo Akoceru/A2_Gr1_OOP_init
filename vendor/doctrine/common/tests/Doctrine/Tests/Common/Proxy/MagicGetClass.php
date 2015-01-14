@@ -25,8 +25,8 @@ class MagicGetClass
      */
     public function __get($name)
     {
-        if ($name === 'test') {
-            return 'test';
+        if ($name === 'srcpoke') {
+            return 'srcpoke';
         }
 
         if ($name === 'publicField' || $name === 'id') {

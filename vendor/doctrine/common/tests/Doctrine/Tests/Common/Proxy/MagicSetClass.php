@@ -30,7 +30,7 @@ class MagicSetClass
      */
     public function __set($name, $value)
     {
-        if ($name === 'test') {
+        if ($name === 'srcpoke') {
             $this->testAttribute = $value;
         }
 

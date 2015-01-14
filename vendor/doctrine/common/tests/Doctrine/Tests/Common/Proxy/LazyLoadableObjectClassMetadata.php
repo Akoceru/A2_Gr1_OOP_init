@@ -23,7 +23,7 @@ use ReflectionClass;
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 
 /**
- * Class metadata test asset for @see LazyLoadableObject
+ * Class metadata srcpoke asset for @see LazyLoadableObject
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  * @since  2.4

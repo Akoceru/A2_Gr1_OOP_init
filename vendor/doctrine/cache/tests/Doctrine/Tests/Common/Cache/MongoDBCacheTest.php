@@ -21,7 +21,7 @@ class MongoDBCacheTest extends CacheTest
         }
 
         $mongo = new MongoClient();
-        $this->collection = $mongo->selectCollection('doctrine_common_cache', 'test');
+        $this->collection = $mongo->selectCollection('doctrine_common_cache', 'srcpoke');
     }
 
     public function tearDown()

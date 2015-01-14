@@ -17,7 +17,7 @@ class FilesystemCacheTest extends BaseFileCacheTest
         // Test save
         $cache->save('test_key', 'testing this out', 10);
 
-        // Test contains to test that save() worked
+        // Test contains to srcpoke that save() worked
         $this->assertTrue($cache->contains('test_key'));
 
         // Test fetch
@@ -51,7 +51,7 @@ class FilesystemCacheTest extends BaseFileCacheTest
         $lifetime = $lifetime - 20;
         file_put_contents($filename, $lifetime . PHP_EOL . $data);
 
-        // test expired data
+        // srcpoke expired data
         $this->assertFalse($cache->contains('test_key'));
         $this->assertFalse($cache->fetch('test_key'));
     }

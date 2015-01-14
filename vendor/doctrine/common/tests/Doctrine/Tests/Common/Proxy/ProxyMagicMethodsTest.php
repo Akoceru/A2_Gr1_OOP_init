@@ -70,7 +70,7 @@ class ProxyMagicMethodsTest extends PHPUnit_Framework_TestCase
         $proxyClassName = $this->generateProxyClass(__NAMESPACE__ . '\\MagicGetClass');
         $proxy          = new $proxyClassName(
             function (Proxy $proxy, $method, $params) use (&$counter) {
-                if ( ! in_array($params[0], array('publicField', 'test', 'notDefined'))) {
+                if ( ! in_array($params[0], array('publicField', 'srcpoke', 'notDefined'))) {
                     throw new \InvalidArgumentException('Unexpected access to field "' . $params[0] . '"');
                 }
 
@@ -88,7 +88,7 @@ class ProxyMagicMethodsTest extends PHPUnit_Framework_TestCase
 
         $this->assertSame('id', $proxy->id);
         $this->assertSame('modifiedPublicField', $proxy->publicField);
-        $this->assertSame('test', $proxy->test);
+        $this->assertSame('srcpoke', $proxy->test);
         $this->assertSame('not defined', $proxy->notDefined);
 
         $this->assertSame(3, $counter);
@@ -121,7 +121,7 @@ class ProxyMagicMethodsTest extends PHPUnit_Framework_TestCase
         $proxyClassName = $this->generateProxyClass(__NAMESPACE__ . '\\MagicSetClass');
         $proxy          = new $proxyClassName(
             function (Proxy  $proxy, $method, $params) use (&$counter) {
-                if ( ! in_array($params[0], array('publicField', 'test', 'notDefined'))) {
+                if ( ! in_array($params[0], array('publicField', 'srcpoke', 'notDefined'))) {
                     throw new \InvalidArgumentException('Unexpected access to field "' . $params[0] . '"');
                 }
 
@@ -187,7 +187,7 @@ class ProxyMagicMethodsTest extends PHPUnit_Framework_TestCase
     {
         $proxyClassName = $this->generateProxyClass(__NAMESPACE__ . '\\MagicIssetClass');
         $proxy          = new $proxyClassName(function (Proxy $proxy, $method, $params) use (&$counter) {
-            if (in_array($params[0], array('publicField', 'test', 'nonExisting'))) {
+            if (in_array($params[0], array('publicField', 'srcpoke', 'nonExisting'))) {
                 $initializer = $proxy->__getInitializer();
 
                 $proxy->__setInitializer(null);

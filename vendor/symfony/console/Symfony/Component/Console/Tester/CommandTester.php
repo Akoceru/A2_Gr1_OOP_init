@@ -32,7 +32,7 @@ class CommandTester
     /**
      * Constructor.
      *
-     * @param Command $command A Command instance to test.
+     * @param Command $command A Command instance to srcpoke.
      */
     public function __construct(Command $command)
     {

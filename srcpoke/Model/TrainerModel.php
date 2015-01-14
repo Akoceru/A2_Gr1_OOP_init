@@ -43,9 +43,9 @@ class TrainerModel implements TrainerInterface
     /**
      * @var string
      *
-     * @Column(name="pokemon_name", type="string", length=20, options={"default":"test"})
+     * @Column(name="pokemon_name", type="string", length=20, options={"default":"srcpoke"})
      */
-    private $pokemon_name = 'test';
+    private $pokemon_name = 'srcpoke';
 
 
     private $lastHeal;

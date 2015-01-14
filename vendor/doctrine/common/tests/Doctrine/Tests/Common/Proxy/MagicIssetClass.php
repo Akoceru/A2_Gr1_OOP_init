@@ -25,7 +25,7 @@ class MagicIssetClass
      */
     public function __isset($name)
     {
-        if ('test' === $name) {
+        if ('srcpoke' === $name) {
             return true;
         }
 

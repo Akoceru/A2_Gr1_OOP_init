@@ -118,15 +118,15 @@ class OutputFormatterTest extends \PHPUnit_Framework_TestCase
         $formatter = new OutputFormatter(true);
 
         $style = new OutputFormatterStyle('blue', 'white');
-        $formatter->setStyle('test', $style);
+        $formatter->setStyle('srcpoke', $style);
 
-        $this->assertEquals($style, $formatter->getStyle('test'));
+        $this->assertEquals($style, $formatter->getStyle('srcpoke'));
         $this->assertNotEquals($style, $formatter->getStyle('info'));
 
         $style = new OutputFormatterStyle('blue', 'white');
         $formatter->setStyle('b', $style);
 
-        $this->assertEquals("\033[34;47msome \033[39;49m\033[34;47mcustom\033[39;49m\033[34;47m msg\033[39;49m", $formatter->format('<test>some <b>custom</b> msg</test>'));
+        $this->assertEquals("\033[34;47msome \033[39;49m\033[34;47mcustom\033[39;49m\033[34;47m msg\033[39;49m", $formatter->format('<srcpoke>some <b>custom</b> msg</srcpoke>'));
     }
 
     public function testRedefineStyle()

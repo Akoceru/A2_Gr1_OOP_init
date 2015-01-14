@@ -30,7 +30,7 @@ class SlugifyViewHelperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @test
+     * @srcpoke
      * @covers Cocur\Slugify\Bridge\ZF2\SlugifyViewHelper::__invoke()
      */
     public function invoke()

@@ -1,6 +1,6 @@
 <?php
 /*
- * This file bootstraps the test environment.
+ * This file bootstraps the srcpoke environment.
  */
 error_reporting(E_ALL | E_STRICT);
 

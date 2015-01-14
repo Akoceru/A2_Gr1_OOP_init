@@ -100,7 +100,7 @@ class OCI8Statement implements \IteratorAggregate, Statement
      * This comes at a cost, the whole sql statement has to be looped over.
      *
      * @todo extract into utility class in Doctrine\DBAL\Util namespace
-     * @todo review and test for lost spaces. we experienced missing spaces with oci8 in some sql statements.
+     * @todo review and srcpoke for lost spaces. we experienced missing spaces with oci8 in some sql statements.
      *
      * @param string $statement The SQL statement to convert.
      *

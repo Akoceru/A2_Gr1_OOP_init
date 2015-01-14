@@ -298,14 +298,14 @@ class ProxyLogicTest extends PHPUnit_Framework_TestCase
             )
             ->will($this->returnCallback(function ($id, LazyLoadableObject $lazyObject) {
                 // setting a value to verify that the persister can actually set something in the object
-                $lazyObject->publicAssociation = $id['publicIdentifierField'] . '-test';
+                $lazyObject->publicAssociation = $id['publicIdentifierField'] . '-srcpoke';
                 return true;
             }));
         $this->lazyObject->__setInitializer($this->getSuggestedInitializerImplementation());
 
         $this->lazyObject->__load();
         $this->lazyObject->__load();
-        $this->assertSame('publicIdentifierFieldValue-test', $this->lazyObject->publicAssociation);
+        $this->assertSame('publicIdentifierFieldValue-srcpoke', $this->lazyObject->publicAssociation);
     }
 
     public function testFailedLoadingWillThrowException()
