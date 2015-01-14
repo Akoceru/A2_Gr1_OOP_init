@@ -59,6 +59,8 @@ if(isset($_POST['name']) && isset($_POST['type'])) {
     $em->persist($pokemon);
     $em->flush();
 
+    $id = $pokemon->getId();
+
     $em = require __DIR__.'/bootstrap.php';
 
 
@@ -72,6 +74,7 @@ if(isset($_POST['name']) && isset($_POST['type'])) {
 
     $trainer->setHavePokemon(1);
     $trainer->setPokemonName($_POST['name']);
+    $trainer->setPokemonId($id);
     var_dump($trainer);
     $em->flush();
     header("location: index.php");

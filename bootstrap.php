@@ -13,7 +13,7 @@ use Doctrine\ORM\EntityManager;
 
 $paths = [
 
-    "srcpokemon",
+    "srcpoke",
 ];
 $isDevMode = true;
 

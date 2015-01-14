@@ -32,23 +32,42 @@ if (empty($_SESSION) ) {
 }
 
 $trainer = new TrainerModel();
+$trainRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
+$trainer = $trainRepository->find($_SESSION["id"]);
+$id = $trainer->getPokemonId();
 $have_pokemon = $trainer->getHavePokemon();
-if($have_pokemon = 0)
+
+
+
+if($have_pokemon == 0)
 {
     header('location: index.php');
 }
 
+$em = require __DIR__.'/bootstrap.php';
 $poke = new PokemonModel();
 
-/** @var  \Doctrine\ORM\EntityRepository */
+
+
 $pokeRepository = $em->getRepository('Akoceru\PokemonBattle\Model\PokemonModel');
-$pokes =$pokeRepository->find($_SESSION["id"]);
-
-$hp = $pokes->getHP();
-$pokename = $pokes->getName();
-$type = $pokes->getType();
+$poke = $pokeRepository->find($id);
 
 
+
+$hp = $poke->getHP();
+$pokename = $poke->getName();
+$type = $poke->getType();
+
+if($type = PokemonModel::TYPE_FIRE)
+{
+
+    $type = "Fire";
+} elseif($type = PokemonModel::TYPE_WATER)
+{
+    $type = "Water";
+
+}else
+    $type = "Plant";
 
 
 $twig = new Twig_Environment($loader,[

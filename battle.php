@@ -37,6 +37,7 @@ $pokeRepository = $em->getRepository('Akoceru\PokemonBattle\Model\PokemonModel')
 $pokes =$pokeRepository->find(22);
 $users = $userRepository->findAll();
 
+var_dump($pokes);
 
 //$lol = $pokes->getType();
 

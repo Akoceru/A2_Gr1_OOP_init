@@ -47,8 +47,19 @@ class TrainerModel implements TrainerInterface
      */
     private $pokemon_name = 'srcpoke';
 
+    /**
+ * @var int
+ *
+ * @Column(name="pokemon_id", type="integer")
+ */
+    private $pokemon_id = 0;
 
-    private $lastHeal;
+    /**
+     * @var int
+     *
+     * * @Column(name="lastHeal", type="integer")
+     */
+    private $lastHeal = 0;
 
     /**
      * @var integer
@@ -216,6 +227,28 @@ class TrainerModel implements TrainerInterface
             throw new \Exception("Is not integer");
 
         return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPokemonId()
+    {
+        return $this->pokemon_id;
+    }
+
+    /**
+     * @param int $pokemon_id
+     *
+     * @return TrainerModel
+     * @throws \Exception
+     */
+    public function setPokemonId($pokemon_id)
+    {
+        if(is_int($pokemon_id))
+         $this->pokemon_id = $pokemon_id;
+        else
+            throw new \Exception('must be int');
     }
 
 
