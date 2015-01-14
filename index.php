@@ -14,16 +14,6 @@ require __DIR__.'/vendor/autoload.php';
 use Cartman\Init\Article;
 use Cocur\Slugify\Slugify;
 
-
-//$article = new Article();
-//$article
-  //  ->setId(5)
-   // ->setTitle($title)
-   // ->setSlug($slugify->slugify($title))
-   // ->setStatus(Article::STATUS_PENDING);
-//;
-//var_dump($article);
-
 require __DIR__.'/_header.php';
 Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem([

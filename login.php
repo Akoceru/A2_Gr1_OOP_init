@@ -18,7 +18,7 @@ $loader = new Twig_Loader_Filesystem([
 ]);
 
 session_start();
-var_dump($_SESSION);
+
 if (!empty($_SESSION)) {
 //echo 'Forbidden !';
     header('Location: index.php');

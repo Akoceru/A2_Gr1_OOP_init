@@ -25,34 +25,40 @@ $em = require __DIR__.'/bootstrap.php';
 
 session_start();
 
-if (empty($_SESSION)) {
+if (empty($_SESSION) ) {
 //echo 'Forbidden !';
     header('Location: index.php');
     die;
 }
 
+$trainer = new TrainerModel();
+$have_pokemon = $trainer->getHavePokemon();
+if($have_pokemon = 0)
+{
+    header('location: index.php');
+}
+
+$poke = new PokemonModel();
+
 /** @var  \Doctrine\ORM\EntityRepository */
-$userRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
 $pokeRepository = $em->getRepository('Akoceru\PokemonBattle\Model\PokemonModel');
-$pokes =$pokeRepository->find(22);
-$users = $userRepository->findAll();
+$pokes =$pokeRepository->find($_SESSION["id"]);
+
+$hp = $pokes->getHP();
+$pokename = $pokes->getName();
+$type = $pokes->getType();
 
 
-//$lol = $pokes->getType();
 
-//$prout = $pokes->isTypeWeak($lol, PokemonModel::TYPE_WATER);
-
-//var_dump($prout);
-
-echo strtotime("now"), "\n";
 
 $twig = new Twig_Environment($loader,[
 //'cache' => null,
 ]);
 
 
-echo $twig->render('battle.html.twig', [
-    "users" => $users,
-    "pokes" => $pokes,
+echo $twig->render('my_pokemon.html.twig', [
+    "hp" => $hp,
     "session" => $_SESSION,
+    "pokename" => $pokename,
+    "type" => $type,
 ]);

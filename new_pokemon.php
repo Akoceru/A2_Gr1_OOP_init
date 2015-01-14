@@ -75,7 +75,8 @@ if(isset($_POST['name']) && isset($_POST['type'])) {
     var_dump($trainer);
     $em->flush();
     header("location: index.php");
-}
+} else
+    echo "You must set your Username and your password";
 
 
 
