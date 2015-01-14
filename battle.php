@@ -28,9 +28,17 @@ session_start();
 /** @var  \Doctrine\ORM\EntityRepository */
 $userRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
 $pokeRepository = $em->getRepository('Akoceru\PokemonBattle\Model\PokemonModel');
-$pokes =$pokeRepository->findAll();
+$pokes =$pokeRepository->find(22);
 $users = $userRepository->findAll();
 
+
+//$lol = $pokes->getType();
+
+//$prout = $pokes->isTypeWeak($lol, PokemonModel::TYPE_WATER);
+
+//var_dump($prout);
+
+echo strtotime("now"), "\n";
 
 $twig = new Twig_Environment($loader,[
 //'cache' => null,

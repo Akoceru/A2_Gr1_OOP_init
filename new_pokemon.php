@@ -37,6 +37,9 @@ $trainerRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerMode
 $trainer = $trainerRepository->find($_SESSION['id']);
 
 $have_pokemon = $trainer->getHavePokemon();
+$poke = new PokemonModel();
+
+$type = $poke->getType(PokemonModel::TYPE_FIRE);
 
 if(empty($_SESSION) || $have_pokemon === 1){
     header("location: index.php");
@@ -50,7 +53,6 @@ if(isset($_POST['name']) && isset($_POST['type'])) {
 
     $pokemon
         ->setName($_POST['name'])
-        ->setHp(100)
         ->setType($_POST['type'])
         ->setUserId($_SESSION['id'])
     ;
@@ -58,6 +60,8 @@ if(isset($_POST['name']) && isset($_POST['type'])) {
     $em->flush();
 
     $em = require __DIR__.'/bootstrap.php';
+
+
 
     /** @var  \Doctrine\ORM\EntityRepository */
     $trainerRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
@@ -81,6 +85,6 @@ $twig = new Twig_Environment($loader,[
 
 
 echo $twig->render('new_pokemon.html.twig', [
-
+    "type" => $type,
 ]);
 var_dump($pokemon);

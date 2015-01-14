@@ -21,7 +21,6 @@ use Akoceru\PokemonBattle\Model\TrainerModel;
 
 session_start();
 
-var_dump($user);
 /**
  * Protection
  */
