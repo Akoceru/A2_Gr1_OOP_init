@@ -154,6 +154,8 @@ class TrainerModel implements TrainerInterface
         }
         else
             throw new \Exception("Is not an integer");
+
+        return $this;
     }
 
     /**
@@ -249,6 +251,8 @@ class TrainerModel implements TrainerInterface
          $this->pokemon_id = $pokemon_id;
         else
             throw new \Exception('must be int');
+
+        return $this;
     }
 
 

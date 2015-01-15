@@ -57,17 +57,24 @@ $poke = $pokeRepository->find($id);
 $hp = $poke->getHP();
 $pokename = $poke->getName();
 $type = $poke->getType();
+var_dump($type);
 
-if($type = PokemonModel::TYPE_FIRE)
+
+if($type == PokemonModel::TYPE_PLANT)
 {
-
-    $type = "Fire";
-} elseif($type = PokemonModel::TYPE_WATER)
+    $types = "Plant";
+}
+  elseif($type == PokemonModel::TYPE_FIRE) {
+      $types = "Fire";
+  }
+elseif($type == PokemonModel::TYPE_WATER)
 {
-    $type = "Water";
+    $types = "Water";
+}
 
-}else
-    $type = "Plant";
+
+
+
 
 
 $twig = new Twig_Environment($loader,[
@@ -80,4 +87,5 @@ echo $twig->render('my_pokemon.html.twig', [
     "session" => $_SESSION,
     "pokename" => $pokename,
     "type" => $type,
+    "types" => $types,
 ]);

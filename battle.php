@@ -34,10 +34,10 @@ if (empty($_SESSION)) {
 /** @var  \Doctrine\ORM\EntityRepository */
 $userRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
 $pokeRepository = $em->getRepository('Akoceru\PokemonBattle\Model\PokemonModel');
-$pokes =$pokeRepository->find(22);
+
 $users = $userRepository->findAll();
 
-var_dump($pokes);
+
 
 //$lol = $pokes->getType();
 
@@ -45,7 +45,7 @@ var_dump($pokes);
 
 //var_dump($prout);
 
-echo strtotime("now"), "\n";
+
 
 $twig = new Twig_Environment($loader,[
 //'cache' => null,
@@ -54,6 +54,5 @@ $twig = new Twig_Environment($loader,[
 
 echo $twig->render('battle.html.twig', [
     "users" => $users,
-    "pokes" => $pokes,
     "session" => $_SESSION,
 ]);

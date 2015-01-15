@@ -91,4 +91,3 @@ $twig = new Twig_Environment($loader,[
 echo $twig->render('new_pokemon.html.twig', [
     "type" => $type,
 ]);
-var_dump($pokemon);

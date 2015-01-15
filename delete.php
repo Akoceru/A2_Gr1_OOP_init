@@ -5,3 +5,78 @@
  * Date: 14/01/2015
  * Time: 23:28
  */
+
+session_start();
+
+require __DIR__.'/vendor/autoload.php';
+
+
+use Akoceru\PokemonBattle\Model\TrainerModel;
+use Akoceru\PokemonBattle\Model\PokemonModel;
+use Cocur\Slugify\Slugify;
+
+
+require __DIR__.'/_header.php';
+Twig_Autoloader::register();
+$loader = new Twig_Loader_Filesystem([
+    __DIR__.'/view',
+]);
+
+/** @var $em \Doctrine\ORM\EntityManager */
+$em = require __DIR__.'/bootstrap.php';
+
+
+if (empty($_SESSION) ) {
+//echo 'Forbidden !';
+    header('Location: index.php');
+    die;
+}
+
+$trainer = new TrainerModel();
+$trainRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
+$trainer = $trainRepository->find($_SESSION["id"]);
+$id = $trainer->getPokemonId();
+$have_pokemon = $trainer->getHavePokemon();
+
+
+
+if($have_pokemon = 0)
+{
+    header('location: index.php');
+}
+
+$em = require __DIR__.'/bootstrap.php';
+$poke = new PokemonModel();
+
+
+
+$pokeRepository = $em->getRepository('Akoceru\PokemonBattle\Model\PokemonModel');
+$poke = $pokeRepository->find($id);
+
+if (null !== $poke)
+    $em->remove($poke);
+
+else
+    echo "nothing";
+
+$em->flush();
+
+
+$trainer = new TrainerModel();
+$trainRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
+$trainer = $trainRepository->find($_SESSION["id"]);
+
+
+
+$trainer
+    ->setPokemonId(0)
+    ->setHavePokemon(0)
+    ->setPokemonName("")
+    ;
+
+
+$em->flush();
+
+header("location: index.php");
+
+
