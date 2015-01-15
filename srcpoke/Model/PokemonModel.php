@@ -128,7 +128,7 @@ class PokemonModel implements PokemonInterface
      */
     public function setHp($hp)
     {
-        if(is_int($hp) && $hp > 0)
+        if(is_int($hp) && $hp >= 0)
             $this->hp = $hp;
         else
             throw new \Exception('HP Must be an integer and must be > 0');
@@ -158,7 +158,7 @@ class PokemonModel implements PokemonInterface
      */
     public function removeHP($hp)
     {
-        if(is_int($hp) && $hp > 0)
+        if(is_int($hp) && $hp >= 0)
           $this->hp = ($this->hp <= $hp) ? 0 : $this->hp - $hp;
         else
             throw new \Exception('HP Must be an integer and must be > 0');
