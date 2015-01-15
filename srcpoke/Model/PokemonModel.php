@@ -32,7 +32,7 @@ class PokemonModel implements PokemonInterface
      *
      * @Id
      * @GeneratedValue(strategy="AUTO")
-     * @Column(name="id", type="integer", )
+     * @Column(name="id", type="integer")
      */
     private $id;
 
