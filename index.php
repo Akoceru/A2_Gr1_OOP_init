@@ -9,8 +9,6 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-
-
 use Cartman\Init\Article;
 use Cocur\Slugify\Slugify;
 
@@ -20,12 +18,11 @@ $loader = new Twig_Loader_Filesystem([
     __DIR__.'/view',
 ]);
 
+
 /** @var $em \Doctrine\ORM\EntityManager */
 $em = require __DIR__.'/bootstrap.php';
 
 session_start();
-
-if(isset($_SESSION))
 
 
 $twig = new Twig_Environment($loader,[
@@ -33,10 +30,8 @@ $twig = new Twig_Environment($loader,[
 ]);
 
 
-
-
-
-if(isset($_SESSION["username"])){
+if(isset($_SESSION["username"]))
+{
     /** @var  \Doctrine\ORM\EntityRepository */
     $trainerRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
 
@@ -46,14 +41,15 @@ if(isset($_SESSION["username"])){
 
     $have_pokemon = $trainer->getHavePokemon();
 
+
     echo $twig->render('index.html.twig', [
         "session" => $_SESSION,
         "username" => $_SESSION["username"],
         "have_pokemon" => $have_pokemon
     ]);
 
-}
-else{
+} else
+{
     echo $twig->render('index.html.twig', [
         "session" => $_SESSION,
 

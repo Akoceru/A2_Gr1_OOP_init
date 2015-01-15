@@ -8,5 +8,10 @@
 
 
 session_start();
-session_destroy();
-header("location: index.php");
+if(empty($_SESSION))
+    header("location: index.php");
+else
+{
+    session_destroy();
+    header("location: index.php");
+}

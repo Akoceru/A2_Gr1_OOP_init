@@ -33,9 +33,14 @@ if (empty($_SESSION) ) {
 }
 
 $trainer = new TrainerModel();
+/** @var  \Doctrine\ORM\EntityRepository */
 $trainRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
+
+/** @var \Akoceru\PokemonBattle\Model\TrainerModel $trainer */
 $trainer = $trainRepository->find($_SESSION["id"]);
+
 $id = $trainer->getPokemonId();
+
 $have_pokemon = $trainer->getHavePokemon();
 
 
@@ -48,9 +53,10 @@ if($have_pokemon = 0)
 $em = require __DIR__.'/bootstrap.php';
 $poke = new PokemonModel();
 
-
-
+/** @var  \Doctrine\ORM\EntityRepository */
 $pokeRepository = $em->getRepository('Akoceru\PokemonBattle\Model\PokemonModel');
+
+/** @var \Akoceru\PokemonBattle\Model\PokemonModel $poke */
 $poke = $pokeRepository->find($id);
 
 if (null !== $poke)

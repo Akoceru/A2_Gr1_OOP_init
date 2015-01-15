@@ -5,18 +5,20 @@
 {% block content %}
     <h1>Wellcome for the amazing Pokemon Online tournament!</h1>
         <h2>Welcome {{ username }}  </h2>
-    <ul>
+    <table class="table table-responsive"><thead><th>username</th> <th>Pokemon</th></thead>
+        <tbody>
         {% for user in users %}
             {% if user.havepokemon == 1 %}
                 {% if user.username == session.username %}
 
                 {% else %}
-                    <li>{{ user.username }} || {{ user.pokemonname }} <a href="attack.php?id={{ user.id }}">Attack!</a> </li>
+                    <tr><td>{{ user.username }} </td> <td>{{ user.pokemonname }} <a href="attack.php?id={{ user.id }}">Attack!</a></td></tr>
                     {% endif %}
             {% else %}
 
             {% endif %}
         {% endfor %}
-    </ul>
+        </tbody>
+    </table>
 
 {% endblock %}

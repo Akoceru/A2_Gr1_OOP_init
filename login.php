@@ -19,7 +19,8 @@ $loader = new Twig_Loader_Filesystem([
 
 session_start();
 
-if (!empty($_SESSION)) {
+if (!empty($_SESSION))
+{
 //echo 'Forbidden !';
     header('Location: index.php');
     die;
@@ -27,17 +28,19 @@ if (!empty($_SESSION)) {
 
 
 
-
+/** @var $em \Doctrine\ORM\EntityManager */
 $em = require __DIR__.'/bootstrap.php';
 
-if(isset($_POST['username']) && $_POST['password']) {
+if(isset($_POST['username']) && $_POST['password'])
+{
     $username = $_POST['username'];
     $password = $_POST['password'];
 
     /**
      * Login
      */
-    if (null !== $username && null !== $password) {
+    if (null !== $username && null !== $password)
+    {
         /** @var \Doctrine\ORM\EntityRepository $userRepository */
         $userRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
         /** @var TrainerModel|null $user */
@@ -46,7 +49,8 @@ if(isset($_POST['username']) && $_POST['password']) {
             'password' => $password,
         ]);
 
-        if (!empty($user)) {
+        if (!empty($user))
+        {
             $_SESSION['id'] = $user->getId();
             $_SESSION['username'] = $user->getUsername();
             $_SESSION['connected'] = true;
@@ -55,8 +59,7 @@ if(isset($_POST['username']) && $_POST['password']) {
                 header('Location: index.php');
                 die;
             }
-        }
-        else
+        } else
             echo "Bad Credential";
 
     }

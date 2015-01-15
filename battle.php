@@ -33,6 +33,7 @@ if (empty($_SESSION)) {
 
 /** @var  \Doctrine\ORM\EntityRepository */
 $userRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
+/** @var  \Doctrine\ORM\EntityRepository */
 $pokeRepository = $em->getRepository('Akoceru\PokemonBattle\Model\PokemonModel');
 
 $users = $userRepository->findAll();

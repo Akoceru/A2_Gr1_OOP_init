@@ -32,11 +32,16 @@ if (empty($_SESSION) ) {
 }
 
 $trainer = new TrainerModel();
-$trainRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
-$trainer = $trainRepository->find($_SESSION["id"]);
-$id = $trainer->getPokemonId();
-$have_pokemon = $trainer->getHavePokemon();
 
+/** @var  \Doctrine\ORM\EntityRepository */
+$trainRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
+
+/** @var \Akoceru\PokemonBattle\Model\TrainerModel $trainer */
+$trainer = $trainRepository->find($_SESSION["id"]);
+
+$id = $trainer->getPokemonId();
+
+$have_pokemon = $trainer->getHavePokemon();
 
 
 if($have_pokemon == 0)
@@ -44,12 +49,14 @@ if($have_pokemon == 0)
     header('location: index.php');
 }
 
-$em = require __DIR__.'/bootstrap.php';
+
 $poke = new PokemonModel();
 
 
-
+/** @var  $pokeRepository */
 $pokeRepository = $em->getRepository('Akoceru\PokemonBattle\Model\PokemonModel');
+
+/** @var \Akoceru\PokemonBattle\Model\PokemonModel $poke */
 $poke = $pokeRepository->find($id);
 
 
@@ -57,16 +64,17 @@ $poke = $pokeRepository->find($id);
 $hp = $poke->getHP();
 $pokename = $poke->getName();
 $type = $poke->getType();
-var_dump($type);
+
 
 
 if($type == PokemonModel::TYPE_PLANT)
 {
     $types = "Plant";
 }
-  elseif($type == PokemonModel::TYPE_FIRE) {
-      $types = "Fire";
-  }
+elseif($type == PokemonModel::TYPE_FIRE)
+{
+    $types = "Fire";
+}
 elseif($type == PokemonModel::TYPE_WATER)
 {
     $types = "Water";

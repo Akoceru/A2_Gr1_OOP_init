@@ -25,13 +25,19 @@ $em = require __DIR__.'/bootstrap.php';
 
 session_start();
 
+/** @var  \Doctrine\ORM\EntityRepository */
 $userRepository = $em->getRepository('Akoceru\PokemonBattle\Model\TrainerModel');
+/** @var  \Doctrine\ORM\EntityRepository */
 $pokeRepository = $em->getRepository('Akoceru\PokemonBattle\Model\PokemonModel');
 
 $useratk = $userRepository->find($_SESSION['id']);
+
 $have_pokmon = $useratk->getHavePokemon();
+
 $lastBattle = $useratk->getLastBattle();
+
 $currentTime = strtotime("now");
+
 if($currentTime - $lastBattle <= (3600*6))
 {
     header("location: index.php");
@@ -43,9 +49,6 @@ else {
         header('Location: index.php');
         die;
     }
-
-    /** @var  \Doctrine\ORM\EntityRepository */
-
 
     $userdef = $userRepository->find($_GET['id']);
 
