@@ -223,14 +223,14 @@ class PokemonModel implements PokemonInterface
      * @return bool
      */
     public function isTypeStrong($type, $type_atk){
-        if($type == self::TYPE_FIRE){
-            return (self::TYPE_WATER === $type_atk) ? false : true;
+        if($type_atk == self::TYPE_FIRE){
+            return (self::TYPE_PLANT === $type) ? true : false;
         }
-        elseif($type === self::TYPE_WATER){
-            return (self::TYPE_PLANT === $type_atk) ? false : true;
+        elseif($type_atk === self::TYPE_WATER){
+            return (self::TYPE_FIRE === $type) ? true : true;
         }
-        elseif($type === self::TYPE_PLANT){
-            return (self::TYPE_FIRE === $type_atk) ? false : true;
+        elseif($type_atk === self::TYPE_PLANT){
+            return (self::TYPE_WATER === $type) ? true : true;
         }
 
         else

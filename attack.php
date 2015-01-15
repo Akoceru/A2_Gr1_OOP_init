@@ -83,7 +83,7 @@ else {
     $attack = mt_rand(5, 10);
 
     $weak = $pokemonatk->isTypeWeak($type2, $type1);
-    $strong = $pokemonatk->isTypeStrong($type2, $type1);
+    $strong = $pokemonatk->isTypeStrong($type1, $type2);
     if ($strong === true) {
         $attack = $attack * 2;
     }
@@ -100,6 +100,9 @@ else {
 
     $useratk->setlastBattle($currentTime);
     $em->flush();
+
+    var_dump($strong);
+
 
     $twig = new Twig_Environment($loader, [
 //'cache' => null,
