@@ -40,7 +40,7 @@ $currentTime = strtotime("now");
 
 if($currentTime - $lastBattle <= (3600*6))
 {
-    header("location: index.php");
+    header("location: attack-fail.php");
 }
 else {
 
@@ -73,12 +73,17 @@ else {
     $pokename2 = $pokemondef->getName();
     $pokename1 = $pokemonatk->getName();
     $currentHp = $pokemondef->getHp();
+    $currentHp2 = $pokemonatk->getHp();
 
-    if ($currentHp == 0) {
-        header("location: index.php");
+    if ($currentHp == 0)
+    {
+        header("location: nohp.php");
     }
 
-
+    if($currentHp2 == 0)
+    {
+        header("location: nohp2.php");
+    }
 
     $type1 = $pokemondef->getType();
     $type2 = $pokemonatk->getType();
@@ -87,6 +92,8 @@ else {
 
     $weak = $pokemonatk->isTypeWeak($type2, $type1);
     $strong = $pokemonatk->isTypeStrong($type1, $type2);
+
+
     if ($strong === true) {
         $attack = $attack * 2;
     }
@@ -104,7 +111,7 @@ else {
     $useratk->setlastBattle($currentTime);
     $em->flush();
 
-    var_dump($strong);
+
 
 
     $twig = new Twig_Environment($loader, [

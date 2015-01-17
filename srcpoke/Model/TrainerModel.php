@@ -29,7 +29,7 @@ class TrainerModel implements TrainerInterface
     /**
      * @var string
      *
-     * @Column(name="username", type="string", length=20)
+     * @Column(name="username", type="string", length=20, unique=true)
      */
     private $username;
 
