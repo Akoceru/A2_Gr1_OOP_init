@@ -227,10 +227,10 @@ class PokemonModel implements PokemonInterface
             return (self::TYPE_PLANT === $type) ? true : false;
         }
         elseif($type_atk === self::TYPE_WATER){
-            return (self::TYPE_FIRE === $type) ? true : true;
+            return (self::TYPE_FIRE === $type) ? true : false;
         }
         elseif($type_atk === self::TYPE_PLANT){
-            return (self::TYPE_WATER === $type) ? true : true;
+            return (self::TYPE_WATER === $type) ? true : false;
         }
 
         else
