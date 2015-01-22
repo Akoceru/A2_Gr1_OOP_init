@@ -111,8 +111,6 @@ else {
     $useratk->setlastBattle($currentTime);
     $em->flush();
 
-var_dump($strong, $weak);
-
 
     $twig = new Twig_Environment($loader, [
 //'cache' => null,
