@@ -78,8 +78,7 @@ if(isset($_POST['name']) && isset($_POST['type'])) {
     var_dump($trainer);
     $em->flush();
     header("location: index.php");
-} else
-    echo "You must set your Username and your password";
+}
 
 
 
@@ -90,4 +89,6 @@ $twig = new Twig_Environment($loader,[
 
 echo $twig->render('new_pokemon.html.twig', [
     "type" => $type,
+    "session" => $_SESSION,
+
 ]);

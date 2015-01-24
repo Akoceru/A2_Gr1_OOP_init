@@ -78,40 +78,37 @@ else {
     if ($currentHp == 0)
     {
         header("location: nohp.php");
-    }
-
-    if($currentHp2 == 0)
+    } elseif($currentHp2 == 0)
     {
         header("location: nohp2.php");
+    }else {
+        $type1 = $pokemondef->getType();
+        $type2 = $pokemonatk->getType();
+
+        $attack = mt_rand(5, 10);
+
+        $weak = $pokemonatk->isTypeWeak($type2, $type1);
+        $strong = $pokemonatk->isTypeStrong($type1, $type2);
+
+
+        if ($strong === true) {
+            $attack = (int)ceil($attack * 1.5);
+        }
+
+        if ($weak === true) {
+            $attack = (int)ceil($attack / 2);
+        }
+
+        if ($currentHp < $attack) {
+            $pokemondef->setHp(0);
+        } else
+            $pokemondef->RemoveHp($attack);
+
+
+        $useratk->setlastBattle($currentTime);
+        $em->flush();
+
     }
-
-    $type1 = $pokemondef->getType();
-    $type2 = $pokemonatk->getType();
-
-    $attack = mt_rand(5, 10);
-
-    $weak = $pokemonatk->isTypeWeak($type2, $type1);
-    $strong = $pokemonatk->isTypeStrong($type1, $type2);
-
-
-    if ($strong === true) {
-        $attack = (int)ceil($attack * 1.5);
-    }
-
-    if ($weak === true) {
-        $attack = (int)ceil($attack / 2);
-    }
-
-    if ($currentHp < $attack) {
-        $pokemondef->setHp(0);
-    } else
-        $pokemondef->RemoveHp($attack);
-
-
-    $useratk->setlastBattle($currentTime);
-    $em->flush();
-
-
     $twig = new Twig_Environment($loader, [
 //'cache' => null,
     ]);
