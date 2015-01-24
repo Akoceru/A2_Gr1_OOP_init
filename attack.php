@@ -95,7 +95,7 @@ else {
 
 
     if ($strong === true) {
-        $attack = $attack * 2;
+        $attack = (int)ceil($attack * 1.5);
     }
 
     if ($weak === true) {
